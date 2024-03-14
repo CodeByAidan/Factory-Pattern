@@ -20,6 +20,14 @@ cd FactoryImplIdea
 npm install
 ```
 
+## Install and Run from GitHub Artifact
+
+Not really recommended, but still works thanks to webpack!
+
+Go to https://github.com/CodeByAidan/Factory-Pattern/actions, then click on the most recent run, and click on (at the bottom) "Webpack Artifacts"
+
+From there it will be downloaded, unzip the archive, and then you can `cd` to that folder, and run `node index.js`. It doesn't need any requirements, other than Node of course.
+
 ## Building the Project
 
 To build the project, you can run the following command:
