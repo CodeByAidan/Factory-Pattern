@@ -1,0 +1,39 @@
+{
+	"name": "factory",
+	"version": "1.0.0",
+	"private": true,
+	"description": "Factory",
+	"main": "dist/bundle.js",
+	"types": "dist/types/index.d.ts",
+	"type": "module",
+	"scripts": {
+		"bundle": "webpack",
+		"build": "webpack && npm run build:types",
+		"build:types": "tsc -d --declarationDir dist/types --emitDeclarationOnly --outDir dist/types",
+		"build:types:js": "tsc -d --declarationMap --declarationDir dist/types --outDir dist/js && npm run fix-imports",
+		"build:all": "webpack && tsc -d --declarationMap --declarationDir dist/types --outDir dist/js && npm run fix-imports",
+		"clean": "rm -rf dist",
+		"watch": "webpack --watch",
+		"start": "node dist/bundle.js",
+		"fix-imports": "node js-file-import-fixer.cjs"
+	},
+	"scriptComments": {
+		"bundle": "Combines all the files into a single file named bundle.js using webpack in dist folder",
+		"build": "Runs webpack and build:types",
+		"build:types": "Generates typescript definition files in dist/types folder",
+		"build:types:js": "Generates typescript definition file, maps in dist/types folder, and javascript files in dist/js folder",
+		"build:all": "Runs webpack and build:types:js, generates typescript definition file, maps in dist/types folder, and javascript files in dist/js folder",
+		"clean": "Removes dist folder",
+		"watch": "Watches for changes in files and runs webpack",
+		"start": "Runs the bundle.js file, which is the entry point of the application",
+		"fix-imports": "Fixes the import statements in the transpiled javascript files"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.27",
+		"ts-loader": "^9.5.1",
+		"tslib": "^2.6.2",
+		"typescript": "^5.4.2",
+		"webpack": "^5.90.3",
+		"webpack-cli": "^5.1.4"
+	}
+}
