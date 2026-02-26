@@ -28,7 +28,7 @@ jobs:
                   mv dist/bundle.js bundle.js
 
             - name: Upload Artifacts
-              uses: actions/upload-artifact@v6
+              uses: actions/upload-artifact@v7
               with:
                   name: Webpack Artifacts
                   path: bundle.js
